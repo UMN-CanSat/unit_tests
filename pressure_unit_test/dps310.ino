@@ -1,7 +1,7 @@
 // Adafruit DPS310 Pressure Sensor functions
 
 void initDPS310() {
-  if (! dps.begin_I2C()) {             // Can pass in I2C address here
+  if (! dps.begin_SPI(DPS310_CS)) {             // Can pass in I2C address here
     Serial.println("Failed to find DPS");
     while (1) yield();
   }
