@@ -29,6 +29,11 @@ void setup() {
   initICM();
 
   delay(30);
+
+  String headerString = "millis, ds3_accX, ds3_accY, ds3_accZ, ds3_gyroX, ds3_gyroY, ds3_gyroZ, ";
+  headerString += "icm_accX, icm_accY, icm_accZ, icm_gyroX, icm_gyroY, icm_gyroZ, icm_magX, icm_magY, icm_magZ";
+
+  Serial.println(headerString);
 }
 
 void loop() {
@@ -51,7 +56,7 @@ String build_data_string() {
     data += String(ds3_gyroX, 4) + ", " + String(ds3_gyroY, 4) + ", " + String(ds3_gyroZ, 4) + ", ";
     data += String(icm.accX(), 4) + ", " + String(icm.accY(), 4) + ", " + String(icm.accZ(), 4) + ", ";
     data += String(icm.gyrX(), 4) + ", " + String(icm.gyrY(), 4) + ", " + String(icm.gyrZ(), 4) + ", ";
-    data += String(icm.magX(), 4) + ", " + String(icm.magY(), 4) + ", " + String(icm.magZ(), 4) + ", ";
+    data += String(icm.magX(), 4) + ", " + String(icm.magY(), 4) + ", " + String(icm.magZ(), 4);
 
     return data;
 }
